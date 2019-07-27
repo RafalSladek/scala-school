@@ -1,8 +1,15 @@
-name := """traits-and-currying"""
+val versions = new {
+  val scala     = "2.12.8"
+  val scalatest = "3.0.8"
+}
 
-version := "1.0"
-
-scalaVersion := "2.11.5"
-
-// Change this to another test framework if you prefer
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+lazy val root = project
+  .in(file("."))
+  .settings(
+    organization := "com.scout24",
+    name := "traits-and-currying",
+    scalaVersion := versions.scala,
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % versions.scalatest % "test"
+    )
+  )
